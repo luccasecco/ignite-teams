@@ -4,7 +4,7 @@ import { UsersThree } from 'phosphor-react-native'
 export const Container = styled.View`
   flex: 1;
   padding: 24px;
-  background-color: ${({theme}) => theme.COLORS.GRAY_600};
+  background-color: ${({theme}) => theme.COLORS.GRAY_700};
 `;
 
 export const Content = styled.View`
