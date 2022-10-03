@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native'
+
 import { Input } from '@components/Input'
 import { Button } from '@components/Button'
 import { Header } from '@components/Header'
@@ -6,6 +8,12 @@ import { Highlight } from '@components/Highlight'
 import { Container, Content, Icon } from './styles'
 
 export function NewGroup(){
+  const navigation = useNavigation()
+
+  function handleCreate(){
+    navigation.navigate('players', { group: 'Rocket'})
+  }
+
   return(
     <Container>
       <Header showBackButton />
@@ -21,7 +29,8 @@ export function NewGroup(){
         />
         <Button 
           title="Criar"
-          style={{ marginTop: 20 }}  
+          style={{ marginTop: 20 }} 
+          onPress={handleCreate} 
         />
       </Content>
     </Container>
