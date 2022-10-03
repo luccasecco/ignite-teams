@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
-import { GroupCard } from '@components/GroupCard';
-import { Header } from '@components/Header';
-import { Highlight } from '@components/Highlight';
 import { Button } from '@components/Button';
+import { Header } from '@components/Header';
+import { GroupCard } from '@components/GroupCard';
+import { Highlight } from '@components/Highlight';
+import { EmptyList } from '@components/EmptyList';
 
 import { Container } from './styles';
-import { EmptyList } from '@components/EmptyList';
 
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>([])
+  const navigation = useNavigation()
+
+  function handleCreateNewGroup(){
+    navigation.navigate('new')
+  }
 
   return (
     <Container>
@@ -37,7 +43,10 @@ export function Groups() {
         )}
       />
 
-      <Button title="Criar nova turma" />
+      <Button 
+        title="Criar nova turma" 
+        onPress={handleCreateNewGroup}
+      />
 
     </Container>
   );
